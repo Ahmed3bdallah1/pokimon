@@ -44,29 +44,6 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  // MaterialColor color(String pokemonType) {
-  //   if (pokemonType == "Grass" || pokemonType == "Ground") {
-  //     return Colors.green;
-  //   } else if (pokemonType == "Fire" ||
-  //       pokemonType == "Poison" ||
-  //       pokemonType == "Dragon") {
-  //     return Colors.red;
-  //   } else if (pokemonType == "Water") {
-  //     return Colors.blue;
-  //   } else if (pokemonType == "Bug" || pokemonType == "Ghost") {
-  //     return Colors.lightGreen;
-  //   } else if (pokemonType == "Electric") {
-  //     return Colors.yellow;
-  //   } else if (pokemonType == "Ice") {
-  //     return Colors.cyan;
-  //   } else if (pokemonType == "Rock") {
-  //     return Colors.brown;
-  //   } else if (pokemonType == "Fighting" || pokemonType == "Psychic") {
-  //     return Colors.indigo;
-  //   }
-  //   return Colors.grey;
-  // }
-
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;

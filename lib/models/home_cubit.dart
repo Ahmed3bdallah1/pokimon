@@ -1,12 +1,10 @@
 import 'dart:convert';
-
 import 'package:bloc/bloc.dart';
-
 import 'cubit_state.dart';
 import 'package:http/http.dart' as http;
 
 class HomeCubit extends Cubit<HomeState> {
-  final List<Map<String, dynamic>> pokemon = [];
+  final List pokemon = [];
 
   HomeCubit() : super(HomeState.initial);
 
@@ -21,6 +19,7 @@ class HomeCubit extends Cubit<HomeState> {
       final response = await http.get(url);
 
       if (response.statusCode == 200) {
+        print(response.body);
         final decodedData = jsonDecode(response.body);
         pokemon.addAll(decodedData['pokemon']);
         emit(HomeState.loaded);

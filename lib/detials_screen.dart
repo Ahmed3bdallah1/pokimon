@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-
 class DetailsScreen extends StatefulWidget {
   final Map<String, dynamic> pokemon;
   final int heroTag;
@@ -19,7 +18,7 @@ class DetailsScreen extends StatefulWidget {
 
 class _DetailsScreenState extends State<DetailsScreen>
     with TickerProviderStateMixin {
-  bool isTapped=false;
+  bool isTapped = false;
 
   @override
   Widget build(BuildContext context) {
@@ -111,15 +110,14 @@ class _DetailsScreenState extends State<DetailsScreen>
               top: 30,
               right: 20,
               child: GestureDetector(
-                onTap: (){
-                  setState(() {
-                    isTapped= !isTapped;
-                    print(isTapped.toString());
-                  });
-                },
-                  child: isTapped==false
-                      ? const Icon(Icons.favorite_border)
-                      : const Icon(Icons.favorite))),
+                  onTap: () {
+                    setState(() {
+                      isTapped = !isTapped;
+                    });
+                  },
+                  child: isTapped == false
+                      ? const Icon(Icons.favorite_border, color: Colors.white)
+                      : const Icon(Icons.favorite, color: Colors.white))),
 
           //position of pokemon number
           Positioned(

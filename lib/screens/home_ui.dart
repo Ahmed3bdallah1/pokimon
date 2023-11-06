@@ -1,44 +1,11 @@
-import 'dart:convert';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokimon/models/card_color.dart';
-import 'package:pokimon/detials_screen.dart';
-import 'models/cubit_state.dart';
-import 'models/home_cubit.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomeCubit()..fetchData(),
-      child: const Scaffold(
-        body: HomeScreenBuilder(),
-      ),
-    );
-  }
-}
-
-class HomeScreenBuilder extends StatelessWidget {
-  const HomeScreenBuilder({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
-      builder: (context, state) {
-        if (state == HomeState.loading) {
-          return const Center(child: CircularProgressIndicator());
-        } else if (state == HomeState.loaded) {
-          return const HomeScreenUi();
-        } else {
-          return const Center(child: Text("Error fetching data"));
-        }
-      },
-    );
-  }
-}
+import 'detials_screen.dart';
+import '../models/card_color.dart';
+import '../models/home_cubit.dart';
 
 class HomeScreenUi extends StatelessWidget {
   const HomeScreenUi({super.key});
@@ -93,7 +60,7 @@ class HomeScreenUi extends StatelessWidget {
                 Expanded(
                   child: GridView.builder(
                     gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
+                    const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       childAspectRatio: 1.4,
                     ),
@@ -140,9 +107,9 @@ class HomeScreenUi extends StatelessWidget {
                                       decoration: BoxDecoration(
                                           color: Colors.white.withOpacity(.3),
                                           borderRadius:
-                                              BorderRadius.circular(20),
+                                          BorderRadius.circular(20),
                                           border:
-                                              Border.all(color: Colors.white)),
+                                          Border.all(color: Colors.white)),
                                       child: Padding(
                                         padding: const EdgeInsets.only(
                                             left: 8.0, right: 8),

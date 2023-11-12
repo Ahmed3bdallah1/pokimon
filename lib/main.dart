@@ -15,8 +15,12 @@ class MyApp extends StatelessWidget {
       title: 'fetch Pokemon',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.light(),
         useMaterial3: true,
+      ),
+      darkTheme: ThemeData(
+        colorScheme: ColorScheme.dark(),
+        useMaterial3: true
       ),
       home: const HomeScreen(),
     );

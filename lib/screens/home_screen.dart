@@ -5,8 +5,8 @@ import 'home_ui.dart';
 import '../models/cubit_state.dart';
 import '../models/home_cubit.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeScreenBloc extends StatelessWidget {
+  const HomeScreenBloc({super.key});
 
   @override
   Widget build(BuildContext context) {

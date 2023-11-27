@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.dark(),
         useMaterial3: true
       ),
-      home: const HomeScreen(),
+      home: const HomeScreenBloc(),
 
     );
   }

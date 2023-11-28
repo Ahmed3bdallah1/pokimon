@@ -13,14 +13,14 @@ class HomeScreenBloc extends StatelessWidget {
     return BlocProvider(
       create: (context) => HomeCubit()..fetchData(),
       child: const Scaffold(
-        body: HomeScreenBuilder(),
+        body: HomeScreenBlocBuilder(),
       ),
     );
   }
 }
 
-class HomeScreenBuilder extends StatelessWidget {
-  const HomeScreenBuilder({super.key});
+class HomeScreenBlocBuilder extends StatelessWidget {
+  const HomeScreenBlocBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {

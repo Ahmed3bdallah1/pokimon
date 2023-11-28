@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokimon/screens/home_screen.dart';
+import 'package:pokimon/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,14 +16,14 @@ class MyApp extends StatelessWidget {
       title: 'fetch Pokemon',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.light(),
+        colorScheme: const ColorScheme.light(),
         useMaterial3: true,
       ),
       darkTheme: ThemeData(
-        colorScheme: ColorScheme.dark(),
+        colorScheme: const ColorScheme.dark(),
         useMaterial3: true
       ),
-      home: const HomeScreenBloc(),
+      home: const SplashScreen(),
 
     );
   }

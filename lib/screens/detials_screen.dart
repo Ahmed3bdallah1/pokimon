@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter/services.dart';
 
 class DetailsScreen extends StatefulWidget {
   final Map<String, dynamic> pokemon;
@@ -22,23 +22,32 @@ class _DetailsScreenState extends State<DetailsScreen>
   bool isTapped = false;
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
+  }
+
+  @override
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 4, vsync: this);
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     List type = widget.pokemon["type"];
     return Scaffold(
-      backgroundColor: widget.color,
+      // backgroundColor: widget.color,
       body: Stack(
         children: [
           // position of back button
           Positioned(
-              top: width * .03,
+              top: width * .04,
               child: IconButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: const Icon(Icons.arrow_back, color: Colors.white))),
+                  icon: const Icon(Icons.arrow_back))),
 
           //position of pokemon name
           Positioned(
@@ -46,32 +55,28 @@ class _DetailsScreenState extends State<DetailsScreen>
               left: 20,
               child: Text(
                 widget.pokemon["name"],
-                style: const TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+                style:
+                    const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
               )),
 
           //position of pokemon type
           Positioned(
-              top: width * .26,
-              left: 20,
+              top: width * .28,
+              left: 18,
               child: Row(
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(.3),
+                        color: widget.color.withOpacity(.3),
                         borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: Colors.white)),
+                        border: Border.all(color: widget.color)),
                     child: Padding(
                       padding: const EdgeInsets.only(
                           left: 6, right: 6, top: 2, bottom: 2),
                       child: Text(
                         widget.pokemon["type"][0],
                         style: const TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
+                            fontSize: 15, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
@@ -79,18 +84,16 @@ class _DetailsScreenState extends State<DetailsScreen>
                   type.length == 2
                       ? Container(
                           decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(.3),
+                              color: widget.color.withOpacity(.3),
                               borderRadius: BorderRadius.circular(20),
-                              border: Border.all(color: Colors.white)),
+                              border: Border.all(color: widget.color)),
                           child: Padding(
                             padding: const EdgeInsets.only(
                                 left: 6, right: 6, top: 2, bottom: 2),
                             child: Text(
                               widget.pokemon["type"][1],
                               style: const TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
+                                  fontSize: 15, fontWeight: FontWeight.bold),
                             ),
                           ))
                       : const Text(" "),
@@ -117,8 +120,8 @@ class _DetailsScreenState extends State<DetailsScreen>
                     });
                   },
                   child: isTapped == false
-                      ? const Icon(Icons.favorite_border, color: Colors.white)
-                      : const Icon(Icons.favorite, color: Colors.white))),
+                      ? const Icon(Icons.favorite_border)
+                      : const Icon(Icons.favorite))),
 
           //position of pokemon number
           Positioned(
@@ -141,7 +144,7 @@ class _DetailsScreenState extends State<DetailsScreen>
               height: height * .6,
               width: width,
               decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: widget.color.withOpacity(.3),
                   borderRadius: const BorderRadius.only(
                       topRight: Radius.circular(15),
                       topLeft: Radius.circular(15)),
@@ -178,7 +181,11 @@ class _DetailsScreenState extends State<DetailsScreen>
                           Tab(
                             child: SizedBox(
                               width: width * .5,
-                              child: const Center(child: Text("evolution")),
+                              child: const Center(
+                                  child: Text(
+                                "evolution",
+                                style: TextStyle(fontSize: 12),
+                              )),
                             ),
                           ),
                           Tab(

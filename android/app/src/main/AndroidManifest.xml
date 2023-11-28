@@ -2,7 +2,7 @@
 
     <application
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/pokemon"
         android:label="pokimon"
         android:usesCleartextTraffic="true">
         <activity
